@@ -1,0 +1,38 @@
+ALGORITHM linear
+VAR
+    arr1 : ARRAY_OF INTEGER[100];
+    arr2 : ARRAY_OF INTEGER[100];
+    sum,i,j:INTEGER;
+    test:BOOLEAN;
+    n,m:INTEGER;
+BEGIN
+    n:=arr1.length-1
+    m:=arr2.length-1
+    sum=0;
+    FOR i FROM 0 TO n STEP 1  DO
+        test:=FALSE;
+        FOR j FROM 0 TO m STEP 1  DO
+            IF (arr1[i]<>arr2[j]) THEN
+                test:=TRUE;
+                BREAK;
+            END_IF
+
+        END_FOR
+        IF (test=TRUE) THEN
+            sum+=arr1[i];
+        END_IF
+    END_FOR
+    FOR j FROM 0 TO m STEP 1  DO
+    test:=FALSE;
+        FOR i FROM 0 TO n STEP 1  DO
+            IF (arr2[j]<>arr1[i]) THEN
+                test:=TRUE;
+                BREAK;
+            END_IF
+        END_FOR
+        IF (test=TRUE) THEN
+            sum+=arr2[j]
+        END_IF
+    END_FOR
+    Write('sum of distinict number is',sum)
+END
